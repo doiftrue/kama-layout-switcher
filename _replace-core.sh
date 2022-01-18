@@ -25,8 +25,6 @@ else
 	To=(   "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ" "хъХЪжэЖЭбю.БЮ,\"№;:?ёЁ" )
 fi
 
-#To=(   "фисву" "хъ" )
-
 from=${From[*]}
 from=${from// /}
 to=${To[*]}
@@ -40,7 +38,7 @@ orig_bufer=$(xsel --clipboard --output)
 
 # place result in buffer
 printf '%s' "$forconvert" | xsel --clipboard --input
-# sleep 0.1
+sleep 0.05
 
 # insert from buffer
 xdotool key Shift+Insert
