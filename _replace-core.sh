@@ -15,9 +15,13 @@ if [[ $forconvert =~ [А-ЯЁа-яё] ]]
 then
 	from="фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъХЪжэЖЭбюБЮ№ёЁ"
 	to="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]{};':\",.<>#\`~"
+
+	replace_direction='ru_us'
 else
 	from="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]{};':\",.\/<>?@#\$^&\`~"
 	to="фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъХЪжэЖЭбю.БЮ,\"№;:?ёЁ"
+
+	replace_direction='us_ru'
 fi
 
 # replace all symbols
@@ -35,5 +39,9 @@ xdotool key Shift+Insert
 
 # Return original bufer back
 printf %s "$orig_bufer" | xsel --clipboard --input
+
+# switch layout to current used
+# notify-send $replace_direction
+[[ $replace_direction == 'us_ru' ]] && g3kb-switch -s ru
 
 

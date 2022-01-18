@@ -30,7 +30,7 @@ fi
 #}
 
 # xdotool need to be run in `us` layout!
-#orig_layout="$(g3kb-switch)";
+#orig_layout="$(g3kb-switch)"
 g3kb-switch -s us
 
 # clear possibly pressed modifiers
@@ -38,14 +38,9 @@ xdotool keyup Control_L Shift_L Alt_L
 
 # select last word
 xdotool key Control_L+Shift_L+Left
-sleep 0.15
+sleep 0.2
 
 # Do replace
 source "$(dirname "$0")"/_replace-core.sh
-
-# switch to another layout
-# notify-send $replace_direction
-[[ $replace_direction == 'us_ru' ]] && g3kb-switch -s ru
-#[[ $orig_layout == "us" ]] && g3kb-switch -s ru
 
 exit 0 # Success
