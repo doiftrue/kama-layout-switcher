@@ -8,21 +8,29 @@ if [[ -z "$forconvert" ]]; then
 	exit 0
 fi
 
+
 # есть хотя бы одная русская буква
 if [[ $forconvert =~ [А-ЯЁа-яё] ]]
 # \x2F = / = slash
 # \x5C = \ = backslash
 then
-	from="фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъХЪжэЖЭбюБЮ№ёЁ"
-	to="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]{};':\",.<>#\`~"
-
 	replace_direction='ru_us'
-else
-	from="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]{};':\",.\/<>?@#\$^&\`~"
-	to="фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъХЪжэЖЭбю.БЮ,\"№;:?ёЁ"
 
+	From=( "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъ" "ХЪжэЖЭбюБЮ№ёЁ" )
+	To=(   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]" "{};':\",.<>#\`~" )
+else
 	replace_direction='us_ru'
+
+	From=( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "[]{};':\",.\/<>?@#\$^&\`~" )
+	To=(   "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ" "хъХЪжэЖЭбю.БЮ,\"№;:?ёЁ" )
 fi
+
+#To=(   "фисву" "хъ" )
+
+from=${From[*]}
+from=${from// /}
+to=${To[*]}
+to=${to// /}
 
 # replace all symbols
 forconvert=$(printf '%s' "$forconvert" | sed "y/$from/$to/")
