@@ -16,8 +16,8 @@ if [[ $forconvert =~ [А-ЯЁа-яё] ]]
 then
 	replace_direction='ru_us'
 
-	From=( "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъ" "ХЪжэЖЭбюБЮ№ёЁ"   "," )
-	To=(   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]" "{};':\",.<>#\`~" "?" )
+	From=( "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъ" "ХЪжэЖЭбюБЮ№ёЁ"   ",;" )
+	To=(   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]" "{};':\",.<>#\`~" "?$" )
 else
 	replace_direction='us_ru'
 
