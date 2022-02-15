@@ -16,13 +16,13 @@ if [[ $forconvert =~ [А-ЯЁа-яё] ]]
 then
 	replace_direction='ru_us'
 
-	From=( "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯхъ" "ХЪжэЖЭбюБЮ№ёЁ"   ",;" )
-	To=(   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]" "{};':\",.<>#\`~" "?$" )
+	From=( 'фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ' 'хъХЪжЖбюБЮёЁЭ' 'э' '№,;' '\.' )
+	To=(   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' '[]{};:,.<>`~"' "'" '#?$' '\/' )
 else
 	replace_direction='us_ru'
 
-	From=( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "[]{};':\",.\/<>?@#\$^&\`~" "№" )
-	To=(   "фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ" "хъХЪжэЖЭбю.БЮ,\"№;:?ёЁ"    "#" )
+	From=( 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' '[]{};:' "'" '"' ',.<>`~' '№?@#^&' '\$\/' )
+	To=(   'фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ' 'хъХЪжЖ' 'э' 'Э' 'бюБЮёЁ' '#,"№:?'  '\;\.' )
 fi
 
 from=${From[*]}
