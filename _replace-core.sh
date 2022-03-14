@@ -21,8 +21,8 @@ then
 else
 	replace_direction='us_ru'
 
-	From=( 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' '[]{};:' "'" '"' ',.<>`~' '№?@#^&' '\$\/' )
-	To=(   'фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ' 'хъХЪжЖ' 'э' 'Э' 'бюБЮёЁ' '#,"№:?' '\;\.' )
+	From=( 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' '[]{};:' "'" '"' ',.<>`~' '№#?&@^' '\$\/' )
+	To=(   'фисвуапршолдьтщзйкыегмцчняФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ' 'хъХЪжЖ' 'э' 'Э' 'бюБЮёЁ' '#№&?":' '\;\.' )
 fi
 
 from=${From[*]}
