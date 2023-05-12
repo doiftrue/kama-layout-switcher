@@ -14,6 +14,7 @@
 # skip in windows: `terminal`
 active_window=$(cat /proc/"$(xdotool getwindowpid "$(xdotool getwindowfocus)")"/comm)
 if [[ $active_window == *terminal* ]] ; then
+	notify-send "note: not working for terminal window."
 	exit 0
 fi
 

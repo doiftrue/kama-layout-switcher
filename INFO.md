@@ -20,15 +20,47 @@ xdolool
 -------
      key list: https://gitlab.com/cunidev/gestures/-/wikis/xdotool-list-of-key-codes
 
+
 g3kb-switch
 -----------
 
-https://github.com/lyokha/g3kb-switch
+See: https://github.com/lyokha/g3kb-switch
 
-install:
--- Installing: /usr/share/bash-completion/completions/g3kb-switch
--- Installing: /usr/local/bin/g3kb-switch
--- Installing: /usr/local/lib/libg3kbswitch.so
+Ensure that `G3kbSwitch Gnome Shell extension` is instaled on your system.
+
+Install:
+
+	$ mkdir ./__temp && cd __temp/
+	$ git clone --depth 1 git@github.com:lyokha/g3kb-switch.git
+	$ cd g3kb-switch/
+	$ mkdir build && cd build
+	$ sudo apt install cmake
+	$ cmake ..
+	$ make
+	$ sudo make install
+
+Install the project...
+
+	-- Install configuration: ""
+	-- Installing: /usr/share/bash-completion/completions/g3kb-switch
+	-- Installing: /usr/share/zsh/site-functions/_g3kb-switch
+	-- Installing: /usr/local/bin/g3kb-switch
+	-- Installing: /usr/local/lib/libg3kbswitch.so
+	-- Installing: /usr/local/share/pkgconfig/g3kb-switch.pc
+	-- Installing: /usr/local/share/man/man1/g3kb-switch.1.gz
+
+Now we need install `G3kbSwitch Gnome Shell extension`:
+
+	$ cd ../extension
+	$ make install  # no sudo required!
+
+Restart Gnome Shell for changes to take effect. Better restart PC.
+
+To check if `G3kbSwitch Gnome Shell extension` is installed:
+
+	gnome-extensions info g3kb-switch@g3kb-switch.org
+	gnome-extensions enable g3kb-switch@g3kb-switch.org
+
 
 Usage:
 
@@ -40,5 +72,10 @@ Usage:
     g3kb-switch -v        Show the program version and exit
 
 
+### Notes
+
+If you just install the Ubuntu you need to install the `gnome-shell-extension`
+
+	sudo apt install gnome-shell-extension-manager
 
 
